@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: api_api
+  name: api_api
+  namespace: default
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: hello-world
+  strategy:
+    rollingUpdate:
+      maxSurge: 6
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: api_api
+    spec:
+      containers:
+      - image: 636700535426.dkr.ecr.us-east-1.amazonaws.com/api:latest
+        imagePullPolicy: Always
+        name: api_api
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 4567
+  selector:
+    app: api
