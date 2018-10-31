@@ -8,9 +8,9 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
+      tag: api_api:${CICD_EXECUTION_SEQUENCE}
 - name: Deploy
   steps:
   - applyYamlConfig:
-      path: ./deployment.yaml
+      path: ./deployment.yml
 branch: {}
