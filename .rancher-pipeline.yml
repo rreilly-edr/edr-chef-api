@@ -1,0 +1,16 @@
+stages:
+- name: Build
+  steps:
+  - runScriptConfig:
+      image: ruby:2.5
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+branch: {}
