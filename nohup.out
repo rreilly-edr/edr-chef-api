@@ -146,3 +146,5 @@ Stopping ...
 == Sinatra (v2.0.4) has taken the stage on 4567 for development with backup from Thin
 127.0.0.1 - - [31/Oct/2018:10:42:23 -0400] "GET /red HTTP/1.1" 200 613 0.6829
 127.0.0.1 - - [31/Oct/2018:10:42:24 -0400] "GET /red HTTP/1.1" 200 613 0.3107
+127.0.0.1 - - [31/Oct/2018:16:15:09 -0400] "GET /prod HTTP/1.1" 200 43 0.3236
+127.0.0.1 - - [31/Oct/2018:16:15:10 -0400] "GET /prod HTTP/1.1" 200 43 0.1738
